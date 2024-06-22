@@ -65,7 +65,15 @@ const AllocationForm = (props) => {
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setCost(event.target.value)}>
+                        onChange={(event) =>{ 
+                            // Allow only numbers
+                                if (-/^\d*$/.test(event.target.value)) {
+                                setCost(event.target.value);
+                                    }
+                                    else{
+                                        alert("The value can accept only number");
+                                    }
+                            }}>
                         </input>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
